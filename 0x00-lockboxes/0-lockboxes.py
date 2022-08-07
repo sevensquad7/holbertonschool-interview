@@ -2,9 +2,10 @@
 """Lockboxes Solutions"""
 
 
-
 def canUnlockAll(boxes):
-    """Method that determines if all the boxes can be opened"""
+    """
+    Method that determines if all the boxes can be opened
+    """
     newlist = []
     n = len(boxes)
     for i in boxes:
