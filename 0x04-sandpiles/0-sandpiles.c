@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "sandpiles.h"
 
 /**
  * grid_sum - sum 2 grids
