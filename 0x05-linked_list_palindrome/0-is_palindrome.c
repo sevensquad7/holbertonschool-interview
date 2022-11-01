@@ -1,64 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
- * node - Search a node by index
- * @head: Pointer to singly linked list
- * @idx: Index to compare
- *
- * Return: The searched value
+ * print_listint - prints all elements of a listint_t list
+ * @h: pointer to head of list
+ * Return: number of nodes
  */
-int node(listint_t *head, int idx)
+size_t print_listint(const listint_t *h)
 {
-	if (idx != 0)
-		return (node(head->next, idx - 1));
+	const listint_t *current;
+	unsigned int n; /* number of nodes */
 
-	return (head->n);
+	current = h;
+	n = 0;
+	while (current != NULL)
+	{
+		printf("%i\n", current->n);
+		current = current->next;
+		n++;
+	}
+
+	return (n);
 }
 
 /**
- * check - Compare if a palindrome
- * @head: Pointer to singly linked list
- * @total: Total Nodes
- *
- * Return: 1 is palindrome, 0 othewise
+ * add_nodeint_end - adds a new node at the end of a listint_t list
+ * @head: pointer to pointer of first node of listint_t list
+ * @n: integer to be included in new node
+ * Return: address of the new element or NULL if it fails
  */
-int check(listint_t *head, int total)
+listint_t *add_nodeint_end(listint_t **head, const int n)
 {
-	if (total <= 0)
-		return (1);
+	listint_t *new;
+	listint_t *current;
 
-	if (head->n == node(head, total))
-		return (check(head->next, total - 2));
+	current = *head;
 
-	return (0);
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+
+	new->n = n;
+	new->next = NULL;
+
+	if (*head == NULL)
+		*head = new;
+	else
+	{
+		while (current->next != NULL)
+			current = current->next;
+		current->next = new;
+	}
+
+	return (new);
 }
 
 /**
- * length - Calculates length
- * @head: Pointer to singly linked list
- *
- * Return: Length
- **/
-int length(listint_t *head)
-{
-	if (head)
-		return (length(head->next) + 1);
-	return (0);
-}
-
-/**
- * is_palindrome - Checks if a singly linked list is a palindrome
- * @head: Pointer to singly linked list
- *
- * Return: 1 is palindrome, 0 othewise
+ * free_listint - frees a listint_t list
+ * @head: pointer to list to be freed
+ * Return: void
  */
-int is_palindrome(listint_t **head)
+void free_listint(listint_t *head)
 {
-	int len = 0;
+	listint_t *current;
 
-	if (!head || !*head)
-		return (1);
-
-	len = length(*head);
-	return (check(*head, len - 1));
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
 }
