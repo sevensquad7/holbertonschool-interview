@@ -21,7 +21,7 @@ def rain(walls):
       arrposition.append(it)
       arrvalue.append(walls[it])
   for item in range(len(arrposition) - 1):
-    if arrvalue[item] <= arrvalue[item + 1]:
+    if arrvalue[item] <= arrvalue[item + 1] and arrposition[item+1] - arrposition[item]>1:
       cont = cont + (
         (arrposition[item + 1] - arrposition[item] - 1) * arrvalue[item])
     else :
