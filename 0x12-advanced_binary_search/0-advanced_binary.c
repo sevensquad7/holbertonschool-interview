@@ -23,8 +23,6 @@ void print_array(int *array, size_t start, size_t end)
 	putchar(0xA);
 }
 
-
-
 /**
  * binary_search - Searches for a value in a sorted array of integers.
  * @array: Is a pointer to the first element of the array to search
