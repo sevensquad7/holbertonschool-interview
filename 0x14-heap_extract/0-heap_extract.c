@@ -59,7 +59,6 @@ char *itoa(int val, int base)
 	return (&buf[i + 1]);
 }
 
-
 /**
  * heap_extract - Extracts the root node of a Max Binary Heap
  * @root: Is a double pointer to the root node of the heap
@@ -95,3 +94,4 @@ int heap_extract(heap_t **root)
 	heapify_down(root);
 	return (value);
 }
+
