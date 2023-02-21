@@ -25,12 +25,12 @@ void print_array2(int *array, int left, int right)
 }
 
 /**
- * top_down_merge - Sort the array using the top Down Merge
- * @B:     Copy Array
- * @left:  Left Index
- * @mid:   Mid Index
+ * top_down_merge -Sort the array using the top Down Merge
+ * @B: Copy Array
+ * @left: Left Index
+ * @mid: Mid Index
  * @right: Right Index
- * @A:     Original Array
+ * @A: Original Array
  *
  * Return: Nothing
  */
@@ -66,10 +66,10 @@ void top_down_merge(int *A, int left, int mid, int right, int *B)
 /**
  * top_down_split_merge - Split A[] into 2 runs, sort both runs into B[],
  * merge both runs from B[] to A[]
- * @B:     Copy Array
- * @left:  Split Matrix left Index
+ * @B: Copy Array
+ * @left: Split Matrix left Index
  * @right: Split Matrix right Index
- * @A:     Original Array
+ * @A: Original Array
  *
  * Return: Nothing
  */
@@ -87,10 +87,10 @@ void top_down_split_merge(int B[], size_t left, size_t right, int A[])
 
 /**
  * copy_array - Copy array
- * @A:     Array to copy
+ * @A: Array to copy
  * @start: Start index
- * @end:   End index
- * @B:     Array to save
+ * @end: End index
+ * @B: Array to save
  *
  * Return: Nothing
  */
@@ -125,3 +125,4 @@ void merge_sort(int *array, size_t size)
 	top_down_split_merge(array2, 0, size, array);
 	free(array2);
 }
+
